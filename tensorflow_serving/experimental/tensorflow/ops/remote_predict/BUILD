@@ -141,7 +141,7 @@ py_library(
     name = "dynamic_embedding",
     srcs = glob(["*.py"]),
     data = [
-        "//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so",
+        ":_cuckoo_hashtable_ops.so",
     ],
     srcs_version = "PY2AND3",
 )
@@ -150,7 +150,8 @@ py_library(
     name = "tensorflow_recommenders_addons",
     srcs = glob(["**/*.py"]),
     deps = [
-        "//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding",
+        ":dynamic_embedding",
+        # "//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding",
         "//tensorflow_recommenders_addons/utils",
     ],
 )
