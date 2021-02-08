@@ -130,9 +130,9 @@ tf_custom_op_py_library(
 custom_op_library(
     name = "_cuckoo_hashtable_ops.so",
     srcs = [
-        "kernels/cuckoo_hashtable_op.cc",
-        "kernels/cuckoo_hashtable_op.h",
-        "ops/cuckoo_hashtable_ops.cc",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core/kernels/cuckoo_hashtable_op.cc",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core/kernels/cuckoo_hashtable_op.h",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core/ops/cuckoo_hashtable_ops.cc",
     ],
     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
 )
