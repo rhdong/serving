@@ -26,6 +26,7 @@ cc_library(
         "@org_tensorflow//tensorflow/core:framework_headers_lib",
         "@org_tensorflow//tensorflow/core:protos_all_cc",
         "@org_tensorflow//tensorflow/core/kernels:ops_util_hdrs",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so",
     ],
     alwayslink = 1,
 )

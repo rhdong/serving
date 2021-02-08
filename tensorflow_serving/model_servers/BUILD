@@ -383,7 +383,7 @@ cc_library(
         "@org_tensorflow//tensorflow/core/platform/cloud:gcs_file_system",
         "@org_tensorflow//tensorflow/core/platform/hadoop:hadoop_file_system",
         "@org_tensorflow//tensorflow/core/platform/s3:s3_file_system",
-        # "//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so",
+        "//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so",
     ],
 )
 
