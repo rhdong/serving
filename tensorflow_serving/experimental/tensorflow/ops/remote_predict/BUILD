@@ -2,6 +2,7 @@
 # Remote Predict Op Prototype
 load("@org_tensorflow//tensorflow:tensorflow.bzl", "tf_custom_op_library", "tf_gen_op_libs", "tf_gen_op_wrapper_cc", "tf_gen_op_wrapper_py", "tf_kernel_library")
 load("@org_tensorflow//tensorflow:tensorflow.bzl", "tf_custom_op_py_library")
+load("//tensorflow_recommenders_addons:tensorflow_recommenders_addons.bzl", "custom_op_library")
 
 licenses(["notice"])
 
@@ -124,6 +125,36 @@ tf_custom_op_py_library(
         "@org_tensorflow//tensorflow/python:framework_for_generated_wrappers",
     ],
 )
+
+## TFRA START 
+custom_op_library(
+    name = "_cuckoo_hashtable_ops.so",
+    srcs = [
+        "kernels/cuckoo_hashtable_op.cc",
+        "kernels/cuckoo_hashtable_op.h",
+        "ops/cuckoo_hashtable_ops.cc",
+    ],
+    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
+)
+
+py_library(
+    name = "dynamic_embedding",
+    srcs = glob(["*.py"]),
+    data = [
+        "//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so",
+    ],
+    srcs_version = "PY2AND3",
+)
+
+py_library(
+    name = "tensorflow_recommenders_addons",
+    srcs = glob(["**/*.py"]),
+    deps = [
+        "//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding",
+        "//tensorflow_recommenders_addons/utils",
+    ],
+)
+## TFRA END
 
 cc_test(
     name = "remote_predict_ops_cc_test",
