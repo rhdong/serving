@@ -132,10 +132,10 @@ custom_op_library(
     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so"],
 )
 
-py_library(
-    name = "dynamic_embedding",
-    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding"],
-)
+# py_library(
+#     name = "dynamic_embedding",
+#     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding"],
+# )
 
 py_library(
     name = "tensorflow_recommenders_addons",
