@@ -127,6 +127,8 @@ tf_custom_op_py_library(
 )
 
 ## TFRA START 
+package(default_visibility = ["//visibility:public"])
+
 custom_op_library(
     name = "_cuckoo_hashtable_ops.so",
     srcs = [
@@ -137,24 +139,24 @@ custom_op_library(
     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
 )
 
-py_library(
-    name = "dynamic_embedding",
-    srcs = glob(["*.py"]),
-    data = [
-        ":_cuckoo_hashtable_ops.so",
-    ],
-    srcs_version = "PY2AND3",
-)
+# py_library(
+#     name = "dynamic_embedding",
+#     srcs = glob(["*.py"]),
+#     data = [
+#         ":_cuckoo_hashtable_ops.so",
+#     ],
+#     srcs_version = "PY2AND3",
+# )
 
-py_library(
-    name = "tensorflow_recommenders_addons",
-    srcs = glob(["**/*.py"]),
-    deps = [
-        ":dynamic_embedding",
-        # "//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding",
-        "//tensorflow_recommenders_addons/utils",
-    ],
-)
+# py_library(
+#     name = "tensorflow_recommenders_addons",
+#     srcs = glob(["**/*.py"]),
+#     deps = [
+#         ":dynamic_embedding",
+#         # "//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding",
+#         "//tensorflow_recommenders_addons/utils",
+#     ],
+# )
 ## TFRA END
 
 cc_test(
