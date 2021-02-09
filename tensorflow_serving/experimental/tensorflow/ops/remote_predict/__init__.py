@@ -23,13 +23,3 @@ from tensorflow.python.util.all_util import remove_undocumented
 from tensorflow_serving.experimental.tensorflow.ops.remote_predict.python.ops.remote_predict_ops import run
 
 remove_undocumented(__name__)
-
-
-from tensorflow_recommenders_addons.utils.ensure_tf_install import _check_tf_version
-
-_check_tf_version()
-
-__version__ = "v0.1.0"
-
-from tensorflow_recommenders_addons import dynamic_embedding
-from tensorflow_recommenders_addons.register import register_all
