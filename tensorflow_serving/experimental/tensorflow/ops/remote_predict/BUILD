@@ -131,12 +131,7 @@ package(default_visibility = ["//visibility:public"])
 
 custom_op_library(
     name = "_cuckoo_hashtable_ops.so",
-    srcs = [
-        "//tensorflow_recommenders_addons/dynamic_embedding/core/kernels/cuckoo_hashtable_op.cc",
-        "//tensorflow_recommenders_addons/dynamic_embedding/core/kernels/cuckoo_hashtable_op.h",
-        "//tensorflow_recommenders_addons/dynamic_embedding/core/ops/cuckoo_hashtable_ops.cc",
-    ],
-    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
+    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so"],
 )
 
 # py_library(
