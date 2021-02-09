@@ -126,25 +126,6 @@ tf_custom_op_py_library(
     ],
 )
 
-## TFRA START 
-custom_op_library(
-    name = "_cuckoo_hashtable_ops.so",
-    deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core:_cuckoo_hashtable_ops.so"],
-)
-
-# py_library(
-#     name = "dynamic_embedding",
-#     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/python/ops:dynamic_embedding"],
-# )
-
-py_library(
-    name = "tensorflow_recommenders_addons",
-    deps = [
-        "//tensorflow_recommenders_addons:tensorflow_recommenders_addons",
-    ],
-)
-## TFRA END
-
 cc_test(
     name = "remote_predict_ops_cc_test",
     size = "small",
