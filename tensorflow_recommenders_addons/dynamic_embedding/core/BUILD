@@ -11,5 +11,6 @@ custom_op_library(
         "kernels/cuckoo_hashtable_op.h",
         "ops/cuckoo_hashtable_ops.cc",
     ],
+    alwayslink = 1,
     deps = ["//tensorflow_recommenders_addons/dynamic_embedding/core/lib/cuckoo:cuckoohash"],
 )
