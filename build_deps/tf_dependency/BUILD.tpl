@@ -11,6 +11,7 @@ cc_library(
 cc_library(
     name = "libtensorflow_framework",
     srcs = ["%{TF_SHARED_LIBRARY_NAME}"],
+    alwayslink = 1,
     visibility = ["//visibility:public"],
 )
 
